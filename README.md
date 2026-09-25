@@ -79,6 +79,7 @@ Technical Notes & Implementation Constraints
 ​Latch-Off Guarantee: Temporary signal bounce on input lines cannot toggle motor power back on. Once a boundary violation occurs, the power path remains latched OFF until reset_n is cycled.
 ​Fail-Safe Operation: The design defaults to a fail-closed power disconnect state during power degradation or system reset events.
 Hardware Power-Off Defaults: The physical gate driver circuit must utilize external pull-down resistors on the gate_power_en line to ensure the high-side power switch defaults to OFF during FPGA unpowered, boot-up, or high-impedance states.
+Hardware Power-Off Defaults: The physical gate driver circuit must utilize external 10\text{ k}\Omega\text{--}100\text{ k}\Omega pull-down resistors placed physically close to the gate driver input. This guarantees the high-side power switch defaults to OFF during FPGA unpowered, boot-up, or high-impedance states while preventing EMI noise pickup.
 ​Analog Conditioning: Mechanical inputs (E-stops) and analog comparator outputs must pass through external hardware filtering and de-bouncing prior to logic evaluation to prevent nuisance trips.
 ​Status & Scope
 ​Current Phase: Theoretical system architecture and hardware specification.
