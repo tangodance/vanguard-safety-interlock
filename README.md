@@ -22,7 +22,7 @@ This interlock places an analog threshold comparator and an asynchronous Set-Res
 |  (Untrusted OS)   |                        |    Power Stage    |
 +-------------------+                        +-------------------+
 |                                            ^
-| Raw Analog Telemetry                       | High-Side
+| Direct Analog Threshold Line               | High-Side
 v                                            | Gate Cut
 +----------------------------------------------------------------+
 | OUT-OF-BAND HARDWARE INTERLOCK                                 |
