@@ -1,6 +1,6 @@
-# Project Vanguard: Out-of-Band Hardware Safety Interlock
+## Project Vanguard: Out-of-Band Hardware Safety Interlock
 
-An asynchronous, fail-silent hardware interlock designed to enforce hard physical power limits on kinetic AI systems and industrial actuators, operating completely out-of-band from the main operating system and control clock.
+An asynchronous, fail-safe hardware interlock designed to enforce hard physical power limits on kinetic AI systems and industrial actuators, operating completely out-of-band from the main operating system and control clock.
 
 ---
 
@@ -15,7 +15,7 @@ As physical AI models (LLMs, VLMs, and autonomous agents) gain direct control ov
 ## Architectural Principle
 Functional physical safety must live **outside the main compute kernel**. 
 
-This interlock places an analog threshold comparator and an asynchronous latch directly between the main controller outputs and the high-side power driver stage. When an analog over-voltage, over-current, or boundary violation occurs, high-side power is cut at the hardware gate layer—bypassing the CPU, OS, and system clock entirely.
+This interlock places an analog threshold comparator and an asynchronous Set-Reset (SR) latch directly between the main controller outputs and the high-side power driver stage. When an analog over-voltage, over-current, or boundary violation occurs, high-side power is cut at the hardware gate layer—bypassing the CPU, OS, and system clock entirely..
 
 +-------------------+     Command Signal     +-------------------+
 |   AI Controller   | ---------------------> |  Motor Driver /   |
