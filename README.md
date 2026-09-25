@@ -69,16 +69,13 @@ module interlock_core (
     assign gate_power_en = !fault_latched && reset_n && !comp_fault && !estop_sense;
 
 endmodule
+
 Technical Notes & Implementation Constraints
-Clock Independence: The interlock path uses zero sequential clocked logic. Power-cut response time is bounded strictly by gate propagation delays, ensuring functionality if the main FPGA or CPU clock freezes.
-
-Latch-Off Guarantee: Temporary signal bounce on input lines cannot toggle motor power back on. Once a boundary violation occurs, the power path remains latched OFF until reset_n is cycled.
-
-Analog Conditioning: Mechanical inputs (E-stops) and analog comparator outputs must pass through external hardware filtering and de-bouncing prior to logic evaluation to prevent nuisance trips.
-
-Status & Scope
-Current Phase: Theoretical system architecture and hardware specification.
-
-Next Steps: Physical prototype assembly and bench verification under thermal and EMI stress.
-
-License: Open Source (MIT License). Free to inspect, adapt, and build upon.
+​Clock Independence: The interlock path uses zero sequential clocked logic. Power-cut response time is bounded strictly by gate propagation delays, ensuring functionality if the main FPGA or CPU clock freezes.
+​Latch-Off Guarantee: Temporary signal bounce on input lines cannot toggle motor power back on. Once a boundary violation occurs, the power path remains latched OFF until reset_n is cycled.
+​Fail-Safe Operation: The design defaults to a fail-closed power disconnect state during power degradation or system reset events.
+​Analog Conditioning: Mechanical inputs (E-stops) and analog comparator outputs must pass through external hardware filtering and de-bouncing prior to logic evaluation to prevent nuisance trips.
+​Status & Scope
+​Current Phase: Theoretical system architecture and hardware specification.
+​Next Steps: Physical prototype assembly and bench verification under thermal and EMI stress.
+​License: Open Source (MIT License). Free to inspect, adapt, and build upon..
